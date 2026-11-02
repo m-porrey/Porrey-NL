@@ -146,6 +146,7 @@ footer{padding-block:12px 40px;font:500 .74rem var(--f-mono);letter-spacing:.06e
 .tile-link{all:unset;cursor:pointer;font:600 .92rem var(--f-body);color:var(--fg);display:inline-flex;gap:6px;align-items:center;border-bottom:1.5px solid var(--brass);padding-bottom:2px;align-self:flex-start}
 .tile-link::after{content:"";position:absolute;inset:0;border-radius:20px}
 .tile-link:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.tile-link:hover,.t-motor:hover .tile-link{background:none;color:var(--brass-ink)}
 .t-motor .gear{margin-top:0}
 .motor-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-top:auto}
 dialog.garage{width:min(980px,calc(100% - 32px));max-height:calc(100% - 32px);border:0;border-radius:20px;padding:0;background:var(--bg);color:var(--fg);box-shadow:0 30px 80px -30px #000}
@@ -179,6 +180,27 @@ dialog.garage::backdrop{background:rgba(10,18,14,.6)}
 .huis-logo{flex:none;display:block;width:clamp(84px,12vw,120px);margin:-6px -6px 0 0;transition:transform .25s ease}
 .huis-logo img{width:100%;height:auto;display:block;border-radius:50%;box-shadow:0 8px 20px -12px rgba(0,0,0,.45)}
 .huis-logo:hover{transform:rotate(-4deg) scale(1.03)}
+
+/* Races */
+.races{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:6px}
+.race-event{border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:grid;gap:10px;min-width:0;align-content:start}
+.ev-head{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-decoration:none;color:var(--fg)}
+.ev-logo{font-family:var(--f-display);font-weight:800;font-stretch:72%;text-transform:uppercase;font-size:1.05rem;letter-spacing:.02em;border-bottom:1.5px solid var(--brass);padding-bottom:1px}
+.ev-logo img{height:34px;width:auto;display:block}
+.ev-logo:has(img){border:0;padding:0}
+.ev-head:hover .ev-logo{color:var(--brass-ink)}
+.ev-where{font:500 .7rem var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.race-event ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.race-event li{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;padding-top:8px;border-top:1px dashed var(--line)}
+.r-name{font-weight:600;font-size:.95rem}
+.pills{display:flex;gap:6px;flex-wrap:wrap}
+.pill{font:500 .68rem var(--f-mono);letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.pill.done{border:1px solid var(--brass);color:var(--brass-ink)}
+.pill.reg{background:var(--racing);color:var(--on-racing)}
+.pill.goal{border:1px dashed var(--muted);color:var(--muted)}
+.t-huis.w2 .huis-top{flex-direction:column-reverse;align-items:flex-start;gap:14px}
+.t-huis.w2 .huis-logo{margin:0;width:96px}
+@media (max-width:980px){.races{grid-template-columns:minmax(0,1fr)}}
 
 /* Taalkeuze */
 .lang{position:absolute;top:clamp(18px,4vw,36px);right:clamp(18px,4vw,36px);z-index:2;display:flex;gap:2px;background:var(--racing-2);border-radius:999px;padding:3px}
@@ -237,23 +259,35 @@ dialog.garage::backdrop{background:rgba(10,18,14,.6)}
       </div>
     </article>
 
-    <article class="tile t-sky w3" id="skyrunning">
+    <article class="tile t-sky w4" id="skyrunning">
       <span class="chip">Skyrunning</span>
       <h2 data-i18n="sky.h2">Hardlopen waar het steil wordt</h2>
       <p class="muted" data-i18n="sky.p">Over paden en graten in de bergen. Bij een loop telt de afstand, maar vooral de klim.</p>
-      <div class="profile" role="img" aria-label="Voorbeeld van een hoogteprofiel van een bergloop">
-        <svg viewBox="0 0 400 120">
-          <path class="area" d="M10 110 L10 92 L55 85 L100 62 L140 52 L175 26 L200 18 L235 42 L270 54 L305 34 L340 70 L390 88 L390 110 Z"/>
-          <path class="ridge" d="M10 92 L55 85 L100 62 L140 52 L175 26 L200 18 L235 42 L270 54 L305 34 L340 70 L390 88"/>
-          <circle class="top" cx="200" cy="18" r="5"/>
-          <text x="10" y="118">start</text>
-          <text x="360" y="118">finish</text>
-        </svg>
+      <div class="races">
+        <section class="race-event">
+          <a class="ev-head" href="https://in.njuko.com/skyrun-eryri" target="_blank" rel="noopener">
+            <span class="ev-logo" data-logo="eryri">SkyRun Eryri</span>
+            <span class="ev-where" data-i18n="ev.eryri">Snowdonia, Wales</span>
+          </a>
+          <ul>
+            <li><span class="r-name">Copper SkyTrail</span><span class="pill done" data-i18n="st.3x">3× gelopen</span></li>
+            <li><span class="r-name">Snowdon Skyrace</span><span class="pill goal" data-i18n="st.goal">Doel 2027</span></li>
+          </ul>
+        </section>
+        <section class="race-event">
+          <a class="ev-head" href="https://skylinescotland.utmb.world/races/Ben-Nevis-Skyline" target="_blank" rel="noopener">
+            <span class="ev-logo" data-logo="skyline">Skyline Scotland</span>
+            <span class="ev-where" data-i18n="ev.scot">Lochaber, Schotland</span>
+          </a>
+          <ul>
+            <li><span class="r-name">Ben Nevis Skyline</span><span class="pills"><span class="pill done" data-i18n="st.2025">2025 gelopen</span><span class="pill reg" data-i18n="st.reg">Ingeschreven</span></span></li>
+            <li><span class="r-name">Ring of Steall Skyrace</span><span class="pill done" data-i18n="st.last">Laatste editie gelopen</span></li>
+          </ul>
+        </section>
       </div>
-      <span class="soon" data-i18n="sky.soon">Wedstrijden en tochten volgen</span>
     </article>
 
-    <article class="tile t-huis w3" id="vakantiehuis">
+    <article class="tile t-huis w2" id="vakantiehuis">
       <div class="huis-top">
         <div class="huis-head">
           <span class="chip" data-i18n="huis.chip">Vakantiehuis</span>
@@ -349,6 +383,13 @@ dialog.garage::backdrop{background:rgba(10,18,14,.6)}
 // ===== Vertalingen (Nederlands staat in de HTML zelf) =====
 const T = {
   en: {
+    "ev.eryri": "Snowdonia, Wales",
+    "ev.scot": "Lochaber, Scotland",
+    "st.3x": "Run 3×",
+    "st.goal": "Goal 2027",
+    "st.2025": "Ran 2025",
+    "st.reg": "Registered",
+    "st.last": "Ran the last edition",
     "motor.more": "See my motorcycles →",
     "m.title": "My motorcycles",
     "m.close": "Close",
@@ -395,6 +436,13 @@ const T = {
     "s.fail": "Sending failed. Please try again later.", "s.offline": "No connection. Please try again later."
   },
   de: {
+    "ev.eryri": "Snowdonia, Wales",
+    "ev.scot": "Lochaber, Schottland",
+    "st.3x": "3× gelaufen",
+    "st.goal": "Ziel 2027",
+    "st.2025": "2025 gelaufen",
+    "st.reg": "Angemeldet",
+    "st.last": "Letzte Ausgabe gelaufen",
     "motor.more": "Meine Motorräder ansehen →",
     "m.title": "Meine Motorräder",
     "m.close": "Schließen",
@@ -441,6 +489,13 @@ const T = {
     "s.fail": "Senden fehlgeschlagen. Bitte versuchen Sie es später erneut.", "s.offline": "Keine Verbindung. Bitte versuchen Sie es später erneut."
   },
   fr: {
+    "ev.eryri": "Snowdonia, pays de Galles",
+    "ev.scot": "Lochaber, Écosse",
+    "st.3x": "Couru 3 fois",
+    "st.goal": "Objectif 2027",
+    "st.2025": "Couru en 2025",
+    "st.reg": "Inscrit",
+    "st.last": "Couru la dernière édition",
     "motor.more": "Voir mes motos →",
     "m.title": "Mes motos",
     "m.close": "Fermer",
