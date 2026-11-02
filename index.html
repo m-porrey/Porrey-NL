@@ -142,9 +142,10 @@ dialog.garage::backdrop{background:rgba(10,18,14,.6)}
 .g-body{padding:clamp(18px,4vw,32px);display:grid;gap:20px}
 .bikes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .bike{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
-.bike-photo{aspect-ratio:4/3;max-width:100%;display:grid;place-items:center;position:relative;background:var(--paint);color:#fff}
-.bike-photo .model{font-family:var(--f-display);font-weight:800;font-stretch:65%;font-size:clamp(2.4rem,7vw,3.4rem);letter-spacing:.02em;text-transform:uppercase;opacity:.35}
-.bike-photo .ph{position:absolute;left:12px;bottom:10px;font:500 .7rem var(--f-mono);letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+.bike-photo{aspect-ratio:4/3;max-width:100%;display:grid;place-items:center;position:relative;overflow:hidden;background:radial-gradient(120% 90% at 50% 100%, var(--card) 0%, var(--soft) 70%);border-bottom:3px solid var(--paint)}
+.bike-photo img{position:absolute;inset:10% 6% 8%;width:88%;height:82%;object-fit:contain;filter:drop-shadow(0 14px 12px rgba(0,0,0,.28))}
+.bike-photo .model{font-family:var(--f-display);font-weight:800;font-stretch:65%;font-size:clamp(3.4rem,9vw,5rem);letter-spacing:.02em;text-transform:uppercase;color:var(--paint);opacity:.16;transform:translateY(-18%)}
+.bike-photo .ph{position:absolute;left:12px;bottom:8px;font:500 .64rem var(--f-mono);letter-spacing:.06em;color:var(--muted)}
 .bike-photo .badge{position:absolute;right:12px;top:12px;font:500 .7rem var(--f-mono);letter-spacing:.1em;text-transform:uppercase;background:var(--brass);color:var(--racing);padding:4px 10px;border-radius:999px}
 .bike-blue{--paint:var(--bike-blue)} .bike-red{--paint:var(--bike-red)} .bike-silver{--paint:var(--bike-silver)}
 .bike-text{padding:18px;display:grid;gap:6px}
@@ -295,15 +296,15 @@ dialog.garage::backdrop{background:rgba(10,18,14,.6)}
     <p class="muted" data-i18n="m.intro">Drie motoren, elk met een eigen karakter. Eén ervan gaat binnenkort onder handen.</p>
     <div class="bikes">
       <article class="bike bike-blue">
-        <div class="bike-photo"><span class="model">CB-1</span><span class="ph" data-i18n="m.photo">Foto volgt</span></div>
+        <div class="bike-photo"><span class="model">CB-1</span><img src="img/cb1.webp" alt="Blauwe Honda CB-1" width="886" height="451"></div>
         <div class="bike-text"><h3>Honda CB-1</h3><p data-i18n="cb1.p">Compacte viercilinder van 400 cc uit eind jaren tachtig, die het liefst hoog in de toeren draait. In het blauw.</p></div>
       </article>
       <article class="bike bike-red">
-        <div class="bike-photo"><span class="model">RF900</span><span class="ph" data-i18n="m.photo">Foto volgt</span></div>
+        <div class="bike-photo"><span class="model">RF900</span><img src="img/rf900.webp" alt="Rode Suzuki RF900R" width="628" height="436"></div>
         <div class="bike-text"><h3>Suzuki RF900R</h3><p data-i18n="rf.p">Sporttourer uit de jaren negentig met een viercilinder van 937 cc. Snel, comfortabel en in het rood.</p></div>
       </article>
       <article class="bike bike-silver">
-        <div class="bike-photo"><span class="model">K100</span><span class="badge" data-i18n="k.badge">Project</span><span class="ph" data-i18n="m.photo">Foto volgt</span></div>
+        <div class="bike-photo"><span class="model">K100</span><img src="img/k100.webp" alt="BMW K100 omgebouwd tot scrambler door Vintage Steele" width="900" height="793"><span class="badge" data-i18n="k.badge">Project</span><span class="ph" data-i18n="m.photo">Voorbeeld: Vintage Steele</span></div>
         <div class="bike-text"><h3>BMW K100</h3><p data-i18n="k.p">De "vliegende baksteen": een liggende viercilinder van bijna 1000 cc. Mijn volgende ombouwproject.</p></div>
       </article>
     </div>
@@ -323,7 +324,7 @@ const T = {
     "m.title": "My motorcycles",
     "m.close": "Close",
     "m.intro": "Three bikes, each with its own character. One of them is about to get a makeover.",
-    "m.photo": "Photo coming soon",
+    "m.photo": "Example: Vintage Steele",
     "cb1.p": "Compact 400 cc four-cylinder from the late eighties that loves to rev high. In blue.",
     "rf.p": "Nineties sports tourer with a 937 cc four-cylinder. Fast, comfortable and red.",
     "k.badge": "Project",
@@ -369,7 +370,7 @@ const T = {
     "m.title": "Meine Motorräder",
     "m.close": "Schließen",
     "m.intro": "Drei Motorräder, jedes mit eigenem Charakter. Eines davon kommt bald unter den Schraubenschlüssel.",
-    "m.photo": "Foto folgt",
+    "m.photo": "Beispiel: Vintage Steele",
     "cb1.p": "Kompakter 400-cm³-Vierzylinder aus den späten Achtzigern, der am liebsten hoch dreht. In Blau.",
     "rf.p": "Sporttourer aus den Neunzigern mit 937-cm³-Vierzylinder. Schnell, komfortabel und in Rot.",
     "k.badge": "Projekt",
@@ -415,7 +416,7 @@ const T = {
     "m.title": "Mes motos",
     "m.close": "Fermer",
     "m.intro": "Trois motos, chacune avec son caractère. L'une d'elles va bientôt passer à l'atelier.",
-    "m.photo": "Photo à venir",
+    "m.photo": "Exemple : Vintage Steele",
     "cb1.p": "Compacte quatre-cylindres de 400 cm³ de la fin des années 80, qui adore monter dans les tours. En bleu.",
     "rf.p": "Sportive-GT des années 90 avec un quatre-cylindres de 937 cm³. Rapide, confortable et rouge.",
     "k.badge": "Projet",
