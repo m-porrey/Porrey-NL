@@ -174,6 +174,12 @@ dialog.garage::backdrop{background:rgba(10,18,14,.6)}
 .tile-li{font-weight:600;font-size:.92rem;color:var(--fg);text-decoration:none;border-bottom:1.5px solid var(--brass);padding-bottom:2px;align-self:flex-start;margin-top:auto}
 .tile-li:hover{color:var(--brass-ink)}
 
+.huis-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.huis-head{display:flex;flex-direction:column;gap:12px;min-width:0}
+.huis-logo{flex:none;display:block;width:clamp(84px,12vw,120px);margin:-6px -6px 0 0;transition:transform .25s ease}
+.huis-logo img{width:100%;height:auto;display:block;border-radius:50%;box-shadow:0 8px 20px -12px rgba(0,0,0,.45)}
+.huis-logo:hover{transform:rotate(-4deg) scale(1.03)}
+
 /* Taalkeuze */
 .lang{position:absolute;top:clamp(18px,4vw,36px);right:clamp(18px,4vw,36px);z-index:2;display:flex;gap:2px;background:var(--racing-2);border-radius:999px;padding:3px}
 .lang button{background:transparent;color:var(--on-racing-muted);font:500 .72rem var(--f-mono);letter-spacing:.08em;padding:6px 10px;border-radius:999px;transition:background .2s ease,color .2s ease}
@@ -248,8 +254,13 @@ dialog.garage::backdrop{background:rgba(10,18,14,.6)}
     </article>
 
     <article class="tile t-huis w3" id="vakantiehuis">
-      <span class="chip" data-i18n="huis.chip">Vakantiehuis</span>
-      <h2>Boshuisje Oisterwijk</h2>
+      <div class="huis-top">
+        <div class="huis-head">
+          <span class="chip" data-i18n="huis.chip">Vakantiehuis</span>
+          <h2>Boshuisje Oisterwijk</h2>
+        </div>
+        <a class="huis-logo" href="https://boshuisje-oisterwijk.nl" rel="noopener" tabindex="-1" aria-hidden="true"><img src="img/boshuisje.webp" alt="" width="140" height="140"></a>
+      </div>
       <p data-i18n="huis.p">Ons huisje in de bossen bij Oisterwijk heeft een eigen site, met foto's, beschikbaarheid en wat er in de buurt te doen is.</p>
       <a class="btn btn-pine" href="https://boshuisje-oisterwijk.nl" rel="noopener" data-i18n="huis.btn">Naar het boshuisje →</a>
     </article>
