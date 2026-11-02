@@ -196,7 +196,9 @@ dialog.garage::backdrop{background:rgba(10,18,14,.6)}
 .ev-where{font:500 .7rem var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .race-event ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .race-event li{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;padding-top:8px;border-top:1px dashed var(--line)}
-.r-name{font-weight:600;font-size:.95rem}
+.r-name{font-weight:600;font-size:.95rem;color:var(--fg);text-decoration:none}
+.r-name span{font-size:.8em;color:var(--brass-ink)}
+a.r-name:hover{color:var(--brass-ink);text-decoration:underline;text-decoration-color:var(--brass);text-underline-offset:3px}
 .pills{display:flex;gap:6px;flex-wrap:wrap}
 .pill{font:500 .68rem var(--f-mono);letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:999px;white-space:nowrap}
 .pill.done{border:1px solid var(--brass);color:var(--brass-ink)}
@@ -385,8 +387,8 @@ dialog.garage::backdrop{background:rgba(10,18,14,.6)}
             <span class="ev-where" data-i18n="ev.eryri">Snowdonia, Wales</span>
           </a>
           <ul>
-            <li><span class="r-name">Copper SkyTrail</span><span class="pill done" data-i18n="st.3x">3× gelopen</span></li>
-            <li><span class="r-name">Snowdon Skyrace</span><span class="pill goal" data-i18n="st.goal">Doel 2027</span></li>
+            <li><a class="r-name" href="https://itra.run/Races/RaceDetails/SkyRun.Eryri%C2%AE.Copper.SkyTrail/2026/108725" target="_blank" rel="noopener">Copper SkyTrail <span aria-hidden="true">↗</span></a><span class="pill done" data-i18n="st.3x">3× gelopen</span></li>
+            <li><a class="r-name" href="https://itra.run/Races/RaceDetails/SkyRun.Eryri%C2%AE.Snowdon.SkyRace/2026/108724" target="_blank" rel="noopener">Snowdon Skyrace <span aria-hidden="true">↗</span></a><span class="pill goal" data-i18n="st.goal">Doel 2027</span></li>
           </ul>
         </section>
         <section class="race-event">
@@ -395,8 +397,8 @@ dialog.garage::backdrop{background:rgba(10,18,14,.6)}
             <span class="ev-where" data-i18n="ev.scot">Lochaber, Schotland</span>
           </a>
           <ul>
-            <li><span class="r-name">Ben Nevis Skyline</span><span class="pills"><span class="pill done" data-i18n="st.2025">2025 gelopen</span><span class="pill reg" data-i18n="st.reg">Ingeschreven</span></span></li>
-            <li><span class="r-name">Ring of Steall Skyrace</span><span class="pill done" data-i18n="st.last">Laatste editie gelopen</span></li>
+            <li><a class="r-name" href="https://skylinescotland.utmb.world/races/Ben-Nevis-Skyline" target="_blank" rel="noopener">Ben Nevis Skyline <span aria-hidden="true">↗</span></a><span class="pills"><span class="pill done" data-i18n="st.2025">2025 gelopen</span><span class="pill reg" data-i18n="st.reg">Ingeschreven 2027</span></span></li>
+            <li><a class="r-name" href="https://runabc.co.uk/salomon-skyline-scotland-report-2023" target="_blank" rel="noopener">Ring of Steall Skyrace <span aria-hidden="true">↗</span></a><span class="pills"><span class="pill done" data-i18n="st.2023">2023 gelopen</span><span class="pill goal" data-i18n="st.last">Laatste editie</span></span></li>
           </ul>
         </section>
       </div>
@@ -415,8 +417,8 @@ const T = {
     "st.3x": "Run 3×",
     "st.goal": "Goal 2027",
     "st.2025": "Ran 2025",
-    "st.reg": "Registered",
-    "st.last": "Ran the last edition",
+    "st.reg": "Registered 2027",
+    "st.last": "Last edition", "st.2023": "Ran 2023",
     "motor.more": "See my motorcycles →",
     "m.title": "My motorcycles",
     "m.close": "Close",
@@ -471,8 +473,8 @@ const T = {
     "st.3x": "3× gelaufen",
     "st.goal": "Ziel 2027",
     "st.2025": "2025 gelaufen",
-    "st.reg": "Angemeldet",
-    "st.last": "Letzte Ausgabe gelaufen",
+    "st.reg": "Angemeldet 2027",
+    "st.last": "Letzte Ausgabe", "st.2023": "2023 gelaufen",
     "motor.more": "Meine Motorräder ansehen →",
     "m.title": "Meine Motorräder",
     "m.close": "Schließen",
@@ -527,8 +529,8 @@ const T = {
     "st.3x": "Couru 3 fois",
     "st.goal": "Objectif 2027",
     "st.2025": "Couru en 2025",
-    "st.reg": "Inscrit",
-    "st.last": "Couru la dernière édition",
+    "st.reg": "Inscrit 2027",
+    "st.last": "Dernière édition", "st.2023": "Couru en 2023",
     "motor.more": "Voir mes motos →",
     "m.title": "Mes motos",
     "m.close": "Fermer",
