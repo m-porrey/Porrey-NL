@@ -15,6 +15,7 @@
   --bg:#f2f3f0; --card:#ffffff; --soft:#eceee9; --fg:#16201b; --muted:#5d6862; --line:#dde1db;
   --racing:#1a3a2d; --racing-2:#25503e; --on-racing:#f3f1ea; --on-racing-muted:#b9c6be;
   --brass:#c49a3e; --brass-ink:#8a6620;
+  --bike-blue:#24467f; --bike-red:#a12e2a; --bike-silver:#7d858c;
   --m1:#2c5a47; --m2:#3b6f59; --m3:#13291f;
   --f-display:"Archivo", "Arial Narrow", "Segoe UI", system-ui, sans-serif;
   --f-body:"Archivo", "Segoe UI", system-ui, sans-serif;
@@ -23,12 +24,12 @@
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0d1411; --card:#141d19; --soft:#1b2621; --fg:#e9ede9; --muted:#9aa69f; --line:#25322b;
   --racing:#12241c; --racing-2:#1d3a2d; --on-racing:#f1efe8; --on-racing-muted:#a9b8af;
-  --brass:#d6af5c; --brass-ink:#d6af5c;
+  --brass:#d6af5c; --brass-ink:#d6af5c; --bike-blue:#2d5194; --bike-red:#a8382f; --bike-silver:#6c757c;
   --m1:#1f4031; --m2:#2c5442; --m3:#0b1712; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0d1411; --card:#141d19; --soft:#1b2621; --fg:#e9ede9; --muted:#9aa69f; --line:#25322b;
   --racing:#12241c; --racing-2:#1d3a2d; --on-racing:#f1efe8; --on-racing-muted:#a9b8af;
-  --brass:#d6af5c; --brass-ink:#d6af5c;
+  --brass:#d6af5c; --brass-ink:#d6af5c; --bike-blue:#2d5194; --bike-red:#a8382f; --bike-silver:#6c757c;
   --m1:#1f4031; --m2:#2c5442; --m3:#0b1712; color-scheme:dark}
 
 *{box-sizing:border-box}
@@ -125,6 +126,35 @@ footer{padding-block:12px 40px;font:500 .74rem var(--f-mono);letter-spacing:.06e
   .gear{animation:spin 20s linear infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
 }
+/* Motoren: klikbare tegel en venster */
+.t-motor{position:relative;cursor:pointer}
+.tile-link{all:unset;cursor:pointer;font:600 .92rem var(--f-body);color:var(--fg);display:inline-flex;gap:6px;align-items:center;border-bottom:1.5px solid var(--brass);padding-bottom:2px;align-self:flex-start}
+.tile-link::after{content:"";position:absolute;inset:0;border-radius:20px}
+.tile-link:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.t-motor .gear{margin-top:0}
+.motor-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-top:auto}
+dialog.garage{width:min(980px,calc(100% - 32px));max-height:calc(100% - 32px);border:0;border-radius:20px;padding:0;background:var(--bg);color:var(--fg);box-shadow:0 30px 80px -30px #000}
+dialog.garage::backdrop{background:rgba(10,18,14,.6)}
+.g-head{position:sticky;top:0;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px clamp(18px,4vw,32px);background:var(--racing);color:var(--on-racing)}
+.g-head h2{font-stretch:72%;text-transform:uppercase;font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800}
+.g-close{all:unset;cursor:pointer;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--racing-2);color:var(--on-racing);font-size:1.3rem;flex:none}
+.g-close:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.g-body{padding:clamp(18px,4vw,32px);display:grid;gap:20px}
+.bikes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.bike{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.bike-photo{aspect-ratio:4/3;max-width:100%;display:grid;place-items:center;position:relative;background:var(--paint);color:#fff}
+.bike-photo .model{font-family:var(--f-display);font-weight:800;font-stretch:65%;font-size:clamp(2.4rem,7vw,3.4rem);letter-spacing:.02em;text-transform:uppercase;opacity:.35}
+.bike-photo .ph{position:absolute;left:12px;bottom:10px;font:500 .7rem var(--f-mono);letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+.bike-photo .badge{position:absolute;right:12px;top:12px;font:500 .7rem var(--f-mono);letter-spacing:.1em;text-transform:uppercase;background:var(--brass);color:var(--racing);padding:4px 10px;border-radius:999px}
+.bike-blue{--paint:var(--bike-blue)} .bike-red{--paint:var(--bike-red)} .bike-silver{--paint:var(--bike-silver)}
+.bike-text{padding:18px;display:grid;gap:6px}
+.bike-text h3{font-family:var(--f-display);font-weight:700;font-stretch:85%;font-size:1.25rem;margin:0}
+.bike-text p{font-size:.94rem;color:var(--muted)}
+.project{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--brass);border-radius:16px;padding:22px;display:grid;gap:10px}
+.project h3{font-family:var(--f-display);font-weight:700;font-stretch:85%;font-size:1.35rem;margin:0}
+.project a{font-weight:600;color:var(--fg);text-decoration-color:var(--brass);text-underline-offset:4px;justify-self:start}
+@media (max-width:820px){.bikes{grid-template-columns:minmax(0,1fr)}}
+
 /* Taalkeuze */
 .lang{position:absolute;top:clamp(18px,4vw,36px);right:clamp(18px,4vw,36px);z-index:2;display:flex;gap:2px;background:var(--racing-2);border-radius:999px;padding:3px}
 .lang button{background:transparent;color:var(--on-racing-muted);font:500 .72rem var(--f-mono);letter-spacing:.08em;padding:6px 10px;border-radius:999px;transition:background .2s ease,color .2s ease}
@@ -172,11 +202,14 @@ footer{padding-block:12px 40px;font:500 .74rem var(--f-mono);letter-spacing:.06e
       <span class="chip" data-i18n="motor.chip">Motoren</span>
       <h2 data-i18n="motor.h2">Klassiekers en sportmotoren</h2>
       <p data-i18n="motor.p">Rijden én sleutelen. Een oude motor weer goed laten lopen is net zo mooi als een bergpas.</p>
-      <svg class="gear" viewBox="0 0 80 80" aria-hidden="true">
-        <circle cx="40" cy="40" r="14"/>
-        <path d="M40 8v10M40 62v10M8 40h10M62 40h10M17 17l7 7M56 56l7 7M17 63l7-7M56 24l7-7"/>
-        <circle cx="40" cy="40" r="25"/>
-      </svg>
+      <div class="motor-foot">
+        <button type="button" class="tile-link" id="open-garage" aria-haspopup="dialog" data-i18n="motor.more">Bekijk mijn motoren →</button>
+        <svg class="gear" viewBox="0 0 80 80" aria-hidden="true">
+          <circle cx="40" cy="40" r="14"/>
+          <path d="M40 8v10M40 62v10M8 40h10M62 40h10M17 17l7 7M56 56l7 7M17 63l7-7M56 24l7-7"/>
+          <circle cx="40" cy="40" r="25"/>
+        </svg>
+      </div>
     </article>
 
     <article class="tile t-sky w3" id="skyrunning">
@@ -252,10 +285,52 @@ footer{padding-block:12px 40px;font:500 .74rem var(--f-mono);letter-spacing:.06e
   </footer>
 </div>
 
+
+<dialog class="garage" id="garage" aria-labelledby="garage-title">
+  <div class="g-head">
+    <h2 id="garage-title" data-i18n="m.title">Mijn motoren</h2>
+    <button type="button" class="g-close" id="close-garage" aria-label="Sluiten" data-i18n-label="m.close">×</button>
+  </div>
+  <div class="g-body">
+    <p class="muted" data-i18n="m.intro">Drie motoren, elk met een eigen karakter. Eén ervan gaat binnenkort onder handen.</p>
+    <div class="bikes">
+      <article class="bike bike-blue">
+        <div class="bike-photo"><span class="model">CB-1</span><span class="ph" data-i18n="m.photo">Foto volgt</span></div>
+        <div class="bike-text"><h3>Honda CB-1</h3><p data-i18n="cb1.p">Compacte viercilinder van 400 cc uit eind jaren tachtig, die het liefst hoog in de toeren draait. In het blauw.</p></div>
+      </article>
+      <article class="bike bike-red">
+        <div class="bike-photo"><span class="model">RF900</span><span class="ph" data-i18n="m.photo">Foto volgt</span></div>
+        <div class="bike-text"><h3>Suzuki RF900R</h3><p data-i18n="rf.p">Sporttourer uit de jaren negentig met een viercilinder van 937 cc. Snel, comfortabel en in het rood.</p></div>
+      </article>
+      <article class="bike bike-silver">
+        <div class="bike-photo"><span class="model">K100</span><span class="badge" data-i18n="k.badge">Project</span><span class="ph" data-i18n="m.photo">Foto volgt</span></div>
+        <div class="bike-text"><h3>BMW K100</h3><p data-i18n="k.p">De "vliegende baksteen": een liggende viercilinder van bijna 1000 cc. Mijn volgende ombouwproject.</p></div>
+      </article>
+    </div>
+    <section class="project">
+      <h3 data-i18n="proj.h">Van K100 naar scrambler</h3>
+      <p class="muted" data-i18n="proj.p">Het plan: de K100 ombouwen tot scrambler, met een eigen zadel, een andere koplamp en een stoerdere, kalere uitstraling. Ter inspiratie dient deze ombouw van Vintage Steele.</p>
+      <a href="https://silodrome.com/bmw-k100-scrambler/" target="_blank" rel="noopener" data-i18n="proj.link">Bekijk het voorbeeld op Silodrome →</a>
+    </section>
+  </div>
+</dialog>
+
 <script>
 // ===== Vertalingen (Nederlands staat in de HTML zelf) =====
 const T = {
   en: {
+    "motor.more": "See my motorcycles →",
+    "m.title": "My motorcycles",
+    "m.close": "Close",
+    "m.intro": "Three bikes, each with its own character. One of them is about to get a makeover.",
+    "m.photo": "Photo coming soon",
+    "cb1.p": "Compact 400 cc four-cylinder from the late eighties that loves to rev high. In blue.",
+    "rf.p": "Nineties sports tourer with a 937 cc four-cylinder. Fast, comfortable and red.",
+    "k.badge": "Project",
+    "k.p": "The “flying brick”: a horizontally mounted four-cylinder of almost 1000 cc. My next build.",
+    "proj.h": "From K100 to scrambler",
+    "proj.p": "The plan: turn the K100 into a scrambler, with a custom seat, a different headlight and a tougher, stripped-back look. Inspiration comes from this build by Vintage Steele.",
+    "proj.link": "See the example on Silodrome →",
     "lede": "Data analyst in education. Outside work you'll find me on a motorcycle, in the mountains or in the workshop.",
     "now": "<b>Now:</b> moving reports to Power BI, and building this site.",
     "werk.chip": "Work",
@@ -290,6 +365,18 @@ const T = {
     "s.fail": "Sending failed. Please try again later.", "s.offline": "No connection. Please try again later."
   },
   de: {
+    "motor.more": "Meine Motorräder ansehen →",
+    "m.title": "Meine Motorräder",
+    "m.close": "Schließen",
+    "m.intro": "Drei Motorräder, jedes mit eigenem Charakter. Eines davon kommt bald unter den Schraubenschlüssel.",
+    "m.photo": "Foto folgt",
+    "cb1.p": "Kompakter 400-cm³-Vierzylinder aus den späten Achtzigern, der am liebsten hoch dreht. In Blau.",
+    "rf.p": "Sporttourer aus den Neunzigern mit 937-cm³-Vierzylinder. Schnell, komfortabel und in Rot.",
+    "k.badge": "Projekt",
+    "k.p": "Der „fliegende Ziegelstein“: ein liegender Vierzylinder mit knapp 1000 cm³. Mein nächstes Umbauprojekt.",
+    "proj.h": "Von der K100 zum Scrambler",
+    "proj.p": "Der Plan: die K100 zum Scrambler umbauen, mit eigener Sitzbank, anderem Scheinwerfer und einem kernigeren, reduzierten Look. Als Inspiration dient dieser Umbau von Vintage Steele.",
+    "proj.link": "Das Beispiel auf Silodrome ansehen →",
     "lede": "Datenanalyst im Bildungswesen. Ansonsten auf dem Motorrad, in den Bergen oder in der Werkstatt.",
     "now": "<b>Aktuell:</b> Berichte nach Power BI umziehen und diese Website aufbauen.",
     "werk.chip": "Arbeit",
@@ -324,6 +411,18 @@ const T = {
     "s.fail": "Senden fehlgeschlagen. Bitte versuchen Sie es später erneut.", "s.offline": "Keine Verbindung. Bitte versuchen Sie es später erneut."
   },
   fr: {
+    "motor.more": "Voir mes motos →",
+    "m.title": "Mes motos",
+    "m.close": "Fermer",
+    "m.intro": "Trois motos, chacune avec son caractère. L'une d'elles va bientôt passer à l'atelier.",
+    "m.photo": "Photo à venir",
+    "cb1.p": "Compacte quatre-cylindres de 400 cm³ de la fin des années 80, qui adore monter dans les tours. En bleu.",
+    "rf.p": "Sportive-GT des années 90 avec un quatre-cylindres de 937 cm³. Rapide, confortable et rouge.",
+    "k.badge": "Projet",
+    "k.p": "La « brique volante » : un quatre-cylindres couché de près de 1000 cm³. Mon prochain projet de transformation.",
+    "proj.h": "De la K100 au scrambler",
+    "proj.p": "Le projet : transformer la K100 en scrambler, avec une selle sur mesure, un autre phare et un look plus brut et dépouillé. Source d'inspiration : cette préparation de Vintage Steele.",
+    "proj.link": "Voir l'exemple sur Silodrome →",
     "lede": "Analyste de données dans l'enseignement. Le reste du temps, à moto, en montagne ou à l'atelier.",
     "now": "<b>En ce moment :</b> migration de rapports vers Power BI, et construction de ce site.",
     "werk.chip": "Travail",
@@ -358,6 +457,7 @@ const T = {
     "s.fail": "L'envoi a échoué. Veuillez réessayer plus tard.", "s.offline": "Pas de connexion. Veuillez réessayer plus tard."
   },
   nl: {
+    "m.close": "Sluiten",
     "s.preview": "Voorbeeld: op porrey.nl wordt dit bericht echt verstuurd.",
     "s.sending": "Bezig met versturen…", "s.ok": "Bedankt! Je bericht is verstuurd.",
     "s.fail": "Versturen lukte niet. Probeer het later opnieuw.", "s.offline": "Geen verbinding. Probeer het later opnieuw."
@@ -373,6 +473,7 @@ function setLang(l, remember) {
   lang = LANGS.includes(l) ? l : "nl";
   document.documentElement.lang = lang;
   nodes.forEach(n => { n.innerHTML = t(n.dataset.i18n); });
+  document.querySelectorAll("[data-i18n-label]").forEach(n => n.setAttribute("aria-label", t(n.dataset.i18nLabel)));
   document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));
   document.getElementById("f-taal").value = lang;
   document.getElementById("status").textContent = "";
@@ -394,6 +495,12 @@ document.querySelectorAll(".lang button").forEach(b => b.addEventListener("click
   setLang(LANGS.includes(nav) ? nav : (nav === "nl" ? "nl" : "en"));
 })();
 window.addEventListener("hashchange", () => { const h = location.hash.slice(1); if (LANGS.includes(h)) setLang(h); });
+
+// ===== Motorenvenster =====
+const garage = document.getElementById("garage");
+document.getElementById("open-garage").addEventListener("click", () => garage.showModal());
+document.getElementById("close-garage").addEventListener("click", () => garage.close());
+garage.addEventListener("click", e => { if (e.target === garage) garage.close(); });
 
 // ===== Contactformulier: op porrey.nl via Web3Forms naar je mail; in de preview alleen een melding =====
 const form = document.getElementById("contactform");
