@@ -38,6 +38,6 @@ In het contactbericht zie je in het veld `taal` welke taal de afzender gebruikte
 
 ## Nog in te vullen
 
-- LinkedIn-link (sectie Werk, zoek op `(link volgt)`)
+
 - Foto's van motoren en skyrunning
 - Stamboom zodra die er is
