@@ -210,13 +210,14 @@ a.r-name:hover{color:var(--brass-ink);text-decoration:underline;text-decoration-
 @media (max-width:720px){.races{grid-template-columns:minmax(0,1fr)}}
 
 .t-motor{overflow:hidden}
-.moto-ride{position:relative;flex:none;width:clamp(96px,11vw,132px);margin:-10px -8px -6px 0}
+.moto-ride{position:absolute;right:clamp(30px,3.4vw,40px);bottom:12px;width:clamp(92px,9.5vw,118px)}
+.t-motor .motor-foot{min-height:96px;align-items:flex-end}
 .moto-toon{position:relative;z-index:1;display:block;width:100%;height:auto;transform-origin:70% 80%;transition:transform .3s ease}
-.road{position:absolute;left:-30%;bottom:-6%;width:140%;height:auto;z-index:0;overflow:visible}
-.road .kerb-base{fill:none;stroke:var(--card);stroke-width:6;stroke-linecap:butt}
-.road .kerb{fill:none;stroke:var(--bike-red);stroke-width:6;stroke-dasharray:9 9}
-.road .edge{fill:none;stroke:var(--line);stroke-width:1.5}
-.road .speed{fill:none;stroke:var(--muted);stroke-width:1.5;stroke-linecap:round;opacity:.55}
+.road{position:absolute;left:0;top:0;width:100%;height:100%;z-index:0;overflow:visible}
+.road .kerb-base{fill:none;stroke:var(--card);stroke-width:30}
+.road .kerb{fill:none;stroke:var(--bike-red);stroke-width:30;stroke-dasharray:46 46}
+.road .edge{fill:none;stroke:var(--line);stroke-width:8}
+.road .speed{fill:none;stroke:var(--muted);stroke-width:9;stroke-linecap:round;opacity:.55}
 .t-motor:hover .moto-toon{transform:rotate(-4deg) translateX(-4px)}
 
 /* Taalkeuze */
@@ -269,11 +270,11 @@ a.r-name:hover{color:var(--brass-ink);text-decoration:underline;text-decoration-
       <div class="motor-foot">
         <button type="button" class="tile-link" data-open="garage" aria-haspopup="dialog" data-i18n="motor.more">Bekijk mijn motoren →</button>
         <span class="moto-ride">
-          <svg class="road" viewBox="0 0 160 44" aria-hidden="true">
-            <path class="speed" d="M4 14 H30 M0 22 H22 M10 30 H34"/>
-            <path class="kerb-base" d="M2 40 Q80 34 158 18"/>
-            <path class="kerb" d="M2 40 Q80 34 158 18"/>
-            <path class="edge" d="M8 44 Q86 40 160 26"/>
+          <svg class="road" viewBox="0 0 640 626" aria-hidden="true">
+            <path class="edge" d="M110 650 Q400 600 780 380"/>
+            <path class="kerb-base" d="M150 616 Q410 560 780 330"/>
+            <path class="kerb" d="M150 616 Q410 560 780 330"/>
+            <path class="speed" d="M655 255 L745 195 M668 315 L770 248 M650 372 L735 316"/>
           </svg>
           <img class="moto-toon" src="img/cb1-track-cartoon.webp" alt="Getekende Marco op zijn blauwe CB-1, nummer 189, schuin in een bocht" width="640" height="626">
         </span>
