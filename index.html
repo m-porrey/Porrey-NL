@@ -144,7 +144,7 @@ footer{padding-block:12px 40px;font:500 .74rem var(--f-mono);letter-spacing:.06e
 }
 /* Motoren: klikbare tegel en venster */
 .t-click{position:relative;cursor:pointer}
-.tile-link{all:unset;cursor:pointer;font:600 .92rem var(--f-body);color:var(--fg);display:inline-flex;gap:6px;align-items:center;border-bottom:1.5px solid var(--brass);padding-bottom:2px;align-self:flex-start}
+.tile-link{all:unset;white-space:nowrap;cursor:pointer;font:600 .92rem var(--f-body);color:var(--fg);display:inline-flex;gap:6px;align-items:center;border-bottom:1.5px solid var(--brass);padding-bottom:2px;align-self:flex-start}
 .tile-link::after{content:"";position:absolute;inset:0;border-radius:20px}
 .tile-link:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
 .tile-link:hover,.t-click:hover .tile-link{background:none;color:var(--brass-ink)}
@@ -209,6 +209,9 @@ a.r-name:hover{color:var(--brass-ink);text-decoration:underline;text-decoration-
 .t-huis.w2 .huis-logo{margin:0;width:96px}
 @media (max-width:720px){.races{grid-template-columns:minmax(0,1fr)}}
 
+.moto-toon{width:clamp(96px,11vw,132px);height:auto;margin:-10px -8px -8px 0;flex:none;transform-origin:70% 80%;transition:transform .3s ease}
+.t-motor:hover .moto-toon{transform:rotate(-4deg) translateX(-4px)}
+
 /* Taalkeuze */
 .lang{position:absolute;top:clamp(18px,4vw,36px);right:clamp(18px,4vw,36px);z-index:2;display:flex;gap:2px;background:var(--racing-2);border-radius:999px;padding:3px}
 .lang button{background:transparent;color:var(--on-racing-muted);font:500 .72rem var(--f-mono);letter-spacing:.08em;padding:6px 10px;border-radius:999px;transition:background .2s ease,color .2s ease}
@@ -258,11 +261,7 @@ a.r-name:hover{color:var(--brass-ink);text-decoration:underline;text-decoration-
       <p data-i18n="motor.p">Rijden én sleutelen. Een oude motor weer goed laten lopen is net zo mooi als een bergpas.</p>
       <div class="motor-foot">
         <button type="button" class="tile-link" data-open="garage" aria-haspopup="dialog" data-i18n="motor.more">Bekijk mijn motoren →</button>
-        <svg class="gear" viewBox="0 0 80 80" aria-hidden="true">
-          <circle cx="40" cy="40" r="14"/>
-          <path d="M40 8v10M40 62v10M8 40h10M62 40h10M17 17l7 7M56 56l7 7M17 63l7-7M56 24l7-7"/>
-          <circle cx="40" cy="40" r="25"/>
-        </svg>
+        <img class="moto-toon" src="img/cb1-track-cartoon.webp" alt="Getekende Marco op zijn blauwe CB-1, nummer 189, schuin in een bocht" width="640" height="626">
       </div>
     </article>
 
@@ -355,7 +354,7 @@ a.r-name:hover{color:var(--brass-ink);text-decoration:underline;text-decoration-
     <p class="muted" data-i18n="m.intro">Drie motoren, elk met een eigen karakter. Eén ervan gaat binnenkort onder handen.</p>
     <div class="bikes">
       <article class="bike bike-blue">
-        <div class="bike-photo"><span class="model">CB-1</span><img src="img/cb1.webp" alt="Blauwe Honda CB-1" width="886" height="451"></div>
+        <div class="bike-photo"><span class="model">CB-1</span><img src="img/cb1.webp" alt="Marco op zijn blauwe Honda CB-1 op het circuit" width="394" height="385"></div>
         <div class="bike-text"><h3>Honda CB-1</h3><p data-i18n="cb1.p">Compacte viercilinder van 400 cc uit eind jaren tachtig, die het liefst hoog in de toeren draait. In het blauw.</p></div>
       </article>
       <article class="bike bike-red">
